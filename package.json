@@ -1,0 +1,46 @@
+{
+  "name": "projecthandler",
+  "version": "1.0.0",
+  "description": "A project management portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "lint": "eslint 'routes/' 'middleware/' 'config/' '*.js' 'client/'",
+    "prettier": "prettier --list-different 'routes/**/*.js' 'middleware/**/*.js' 'config/**/*.js' '*.js' 'client/**/*.js'",
+    "lint:fix": "eslint routes/ middleware/ config/ client/ *.js --fix",
+    "prettier:fix": "prettier --write 'routes/**/*.js' 'middleware/**/*.js' 'config/**/*.js' '*.js' 'client/**/*.js'",
+    "ci": "npm-run-all lint prettier",
+    "ci:fix": "npm-run-all lint:fix prettier:fix",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.10",
+    "npm-run-all": "^4.1.5",
+    "request": "^2.88.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.2"
+  }
+}

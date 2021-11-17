@@ -1,0 +1,640 @@
+{
+	"info": {
+		"_postman_id": "b1fdf817-041f-487c-84c0-c50c3476b161",
+		"name": "ProjectHandler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users & Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"spree person two\",\n\t\"email\": \"spreetwo@example.com\",\n\t\"password\": \"spree123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"spreetwo@example.com\",\n\t\"password\": \"spree123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get auth user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "Create a project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0Iiwicm9sZSI6Im1lbWJlciJ9LCJpYXQiOjE2MzcxNzUyNDksImV4cCI6MTYzNzIxMTI0OX0.stHuYO232Ul7QhZteaJymJ1OygjCd9_n7ayONOWO9gI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"test proj x\",\n    \"description\" : \"test project description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/admin/projects",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all projects list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/projects",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign user to project",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/projects/6192c0d0fb3409b5e85dd625/assign/6192c1e5f0177db757ea8f7d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"projects",
+										"6192c0d0fb3409b5e85dd625",
+										"assign",
+										"6192c1e5f0177db757ea8f7d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update project by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"noOfHours\": \"10\",\n    \"cost\": \"1\",\n    \"name\": \"testProjectOne\",\n    \"status\": \"NOT_STARTED\",\n    \"description\": \"test project description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/projects/6192c0d0fb3409b5e85dd625",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"projects",
+										"6192c0d0fb3409b5e85dd625"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get project by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/projects/6192ba45db301aa2d8f27d25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"projects",
+										"6192ba45db301aa2d8f27d25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete project by id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/projects/6192ba45db301aa2d8f27d25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"projects",
+										"6192ba45db301aa2d8f27d25"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get project list for current user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks under project id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzAwNTYzNywiZXhwIjoxNjM3MDQxNjM3fQ.S-Gkypuw8YGksXQSvwfgNhKjEpj2Ieym3Fc_Pr19FsI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/projects/6192d004c27bb5df61ad98dc/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"projects",
+								"6192d004c27bb5df61ad98dc",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get project by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA4NTQxNCwiZXhwIjoxNjM3MTIxNDE0fQ.LeSkuF0WbmjEiXFOfh6d3vD4mCY4G-PYn8S8HtGWHhs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/projects/6192d004c27bb5df61ad98dc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"projects",
+								"6192d004c27bb5df61ad98dc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "Get list of all tasks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA2MjA2MiwiZXhwIjoxNjM3MDk4MDYyfQ.ZDY6XSsyCBQGdq8qYTqOfuFj0zfEZ5yjmVDNP2MT6bw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/admin/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get task by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA2MjA2MiwiZXhwIjoxNjM3MDk4MDYyfQ.ZDY6XSsyCBQGdq8qYTqOfuFj0zfEZ5yjmVDNP2MT6bw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/admin/tasks/6193a4a5ede0c43e0f05a37e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"tasks",
+										"6193a4a5ede0c43e0f05a37e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA2NjkwMiwiZXhwIjoxNjM3MTAyOTAyfQ.5AIeudFHwkyzEPKzzD2XksYAUiRVl1l6GQUI4MOmq_c",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"taskTwo\",\n    \"description\": \"test two description\",\n    \"startDate\": \"16-11-2021\",\n    \"endDate\": \"16-12-2021\",\n    \"hourlyRate\": \"10\",\n    \"user\": \"6192b8cfdb301aa2d8f27d24\",\n    \"project\": \"6192d004c27bb5df61ad98dc\",\n    \"prerequisites\": [\n        \"6193a4a5ede0c43e0f05a37e\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/admin/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update task by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA2ODIzNCwiZXhwIjoxNjM3MTA0MjM0fQ.9-qAd17amTnkLO_XSj3-0h5vz-B5jbrznZhNnrhDpmA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"taskTwo\",\n    \"description\": \"test two description\",\n    \"startDate\": \"16-11-2021\",\n    \"endDate\": \"16-12-2021\",\n    \"hourlyRate\": \"10\",\n    \"user\": \"6192b8cfdb301aa2d8f27d24\",\n    \"project\": \"6192d004c27bb5df61ad98dc\",\n    \"prerequisites\": [\n        \"6193a4a5ede0c43e0f05a37e\"\n    ],\n    \"cost\": \"100\",\n    \"status\": \"NOT_STARTED\",\n    \"noOfHours\": \"10\",\n    \"type\": \"NORMAL_TASK\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/admin/tasks/6193a4a5ede0c43e0f05a37e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"tasks",
+										"6193a4a5ede0c43e0f05a37e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all tasks for current user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmMxZTVmMDE3N2RiNzU3ZWE4ZjdkIn0sImlhdCI6MTYzNzA4NDg3MywiZXhwIjoxNjM3MTIwODczfQ.amRtO7ci2_IVZZ7x25j1ROaEGqXjQyMDp_aSr10qurI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get task by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA4NjE4NCwiZXhwIjoxNjM3MTIyMTg0fQ.4VRsLfKEvRDJZZTL5aQsO5dOO-ttMv6gsom6dy3jYTc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/tasks/6193a4a5ede0c43e0f05a37e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tasks",
+								"6193a4a5ede0c43e0f05a37e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start a task by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA4NDMxOSwiZXhwIjoxNjM3MTIwMzE5fQ.YTeCSO5G5IWk3KgKGPGVzzYwueaeL-aQCyLRZ67bdpU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/tasks/6193e8549993fb1e2e59442c/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tasks",
+								"6193e8549993fb1e2e59442c",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finish a task by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0In0sImlhdCI6MTYzNzA4NDMxOSwiZXhwIjoxNjM3MTIwMzE5fQ.YTeCSO5G5IWk3KgKGPGVzzYwueaeL-aQCyLRZ67bdpU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"noOfHours\": \"10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tasks/6193e8549993fb1e2e59442c/finish",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tasks",
+								"6193e8549993fb1e2e59442c",
+								"finish"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
