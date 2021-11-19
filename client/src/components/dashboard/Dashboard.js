@@ -13,7 +13,7 @@ import Education from './Education';
 const Dashboard = ({
   getCurrentProfile,
   deleteAccount,
-  auth: { user },
+  auth: { user, role },
   profile: { profile, loading },
 }) => {
   useEffect(() => {
@@ -28,7 +28,7 @@ const Dashboard = ({
       <p className="lead">
         <i className="fas fa-user" /> Welcome {user && user.name}
       </p>
-      {user && user.role === 'admin' ? (
+      {role === 'admin' ? (
         <Fragment>
           <p> You have Admin priviledges </p>
           <Link to="admin-panel" className="btn btn-primary my-1">

@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  position: {
+    type: String,
+    default: 'developer',
+  },
 });
 
 const User = mongoose.model('user', userSchema);

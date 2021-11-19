@@ -17,6 +17,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/admin/projects', require('./routes/api/admin/projects'));
 app.use('/api/admin/tasks', require('./routes/api/admin/tasks'));
+app.use('/api/admin/users', require('./routes/api/admin/users'));
 app.use('/api/projects', require('./routes/api/projects'));
 app.use('/api/tasks', require('./routes/api/tasks'));
 

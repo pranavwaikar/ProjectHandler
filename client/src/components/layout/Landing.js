@@ -11,10 +11,10 @@ export const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">Developer Connector</h1>
+          <h1 className="x-large">Project Handler</h1>
           <p className="lead">
-            Create developer profile/portfolio, share posts and get help from
-            other developers
+            Create developer projects/tasks and track team members in highly
+            efficient manner
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">

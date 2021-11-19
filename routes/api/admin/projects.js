@@ -6,6 +6,7 @@ const logger = require('../../../config/logger');
 
 const User = require('../../models/User');
 const Project = require('../../models/Project');
+const Task = require('../../models/Task');
 const { TASK_STATUS } = require('../../../config/conf');
 
 // @route   POST api/admin/projects
@@ -164,6 +165,22 @@ router.put('/:id/assign/:user_id', authAdmin, async (req, res) => {
     await project.save();
 
     res.json(project);
+  } catch (error) {
+    logger.error(error.message);
+    res.status(500).send('server error');
+  }
+});
+
+// @route   GET api/admin/projects/:id/tasks
+// @desc    Get all tasks under given project id
+// @access  Private
+router.get('/:id/tasks', authAdmin, async (req, res) => {
+  try {
+    const tasks = await Task.find({ project: req.params.id }).sort({
+      creationDate: -1,
+    });
+
+    res.json(tasks);
   } catch (error) {
     logger.error(error.message);
     res.status(500).send('server error');

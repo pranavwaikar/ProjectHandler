@@ -15,6 +15,10 @@ import Profile from '../profile/Profile';
 import Posts from '../posts/Posts';
 import NotFound from '../layout/NotFound';
 import Panel from '../admin/Panel';
+import Unauthorize from '../layout/Unauthorize';
+import ProjectDisplay from '../admin/ProjectDisplay';
+import TaskCreate from '../admin/TaskCreate';
+import TaskUpdate from '../admin/TaskUpdate';
 
 const Routes = () => {
   return (
@@ -25,6 +29,21 @@ const Routes = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profiles" component={Profiles} />
         <Route exact path="/profile/:id" component={Profile} />
+        <PrivateRoute
+          exact
+          path="/admin-panel/projects/:id"
+          component={ProjectDisplay}
+        />
+        <PrivateRoute
+          exact
+          path="/admin-panel/projects/:id/tasks"
+          component={TaskCreate}
+        />
+        <PrivateRoute
+          exact
+          path="/admin-panel/projects/:id/tasks/:taskid"
+          component={TaskUpdate}
+        />
         <PrivateRoute exact path="/admin-panel" component={Panel} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create-profile" component={CreateProfile} />
@@ -32,6 +51,7 @@ const Routes = () => {
         <PrivateRoute exact path="/add-experience" component={AddExperince} />
         <PrivateRoute exact path="/add-education" component={AddEducation} />
         <PrivateRoute exact path="/posts" component={Posts} />
+        <PrivateRoute exact path="/unauthorize" component={Unauthorize} />
         <Route component={NotFound} />
       </Switch>
     </section>

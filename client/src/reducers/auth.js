@@ -14,6 +14,7 @@ const initialState = {
   isAuthenticated: null,
   loading: true,
   user: null,
+  role: 'admin',
 };
 
 const auth = (state = initialState, action) => {
@@ -26,6 +27,7 @@ const auth = (state = initialState, action) => {
         isAuthenticated: true,
         loading: false,
         user: payload,
+        role: payload.role,
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
@@ -35,6 +37,7 @@ const auth = (state = initialState, action) => {
         ...payload,
         isAuthenticated: true,
         loading: false,
+        role: payload.role,
       };
     case REGISTER_FAILED:
     case AUTH_ERROR:
