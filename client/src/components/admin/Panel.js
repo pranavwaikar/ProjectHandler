@@ -6,7 +6,6 @@ import {
   getAdminProjects,
   createNewProject,
 } from '../../actions/admin/projects';
-import { getAdminTasks } from '../../actions/admin/tasks';
 import Spinner from '../layout/Spinner';
 
 const createRowEntries = (projectsData) => {
@@ -72,7 +71,6 @@ const Panel = ({
   loading,
   error,
   getAdminProjects,
-  getAdminTasks,
   createNewProject,
 }) => {
   const [filterValue, setFilterValue] = useState('NONE');
@@ -97,8 +95,7 @@ const Panel = ({
 
   useEffect(() => {
     getAdminProjects();
-    getAdminTasks();
-  }, [getAdminProjects, getAdminTasks]);
+  }, [getAdminProjects, projects]);
 
   useEffect(() => {
     if (loading === false) {
@@ -187,7 +184,6 @@ const Panel = ({
           className="btn btn-primary"
         />
       </form>
-      {/* <Alert /> */}
       <h2> Projects </h2>
 
       <select
@@ -238,7 +234,6 @@ Panel.propTypes = {
   loading: PropTypes.object.isRequired,
   error: PropTypes.object.isRequired,
   getAdminProjects: PropTypes.func.isRequired,
-  getAdminTasks: PropTypes.func.isRequired,
   createNewProject: PropTypes.func.isRequired,
 };
 
@@ -251,6 +246,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getAdminProjects,
-  getAdminTasks,
   createNewProject,
 })(Panel);

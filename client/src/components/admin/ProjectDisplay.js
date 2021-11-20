@@ -377,7 +377,7 @@ const ProjectDisplay = ({
           Create new task
         </Link>
       ) : (
-        <h4 className="btn btn-warning my-1 leftSpacing">
+        <h4 className="badge badge-warning">
           {' '}
           Please add members to project to create tasks{' '}
         </h4>

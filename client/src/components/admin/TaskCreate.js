@@ -92,7 +92,6 @@ const TaskCreate = ({
     users,
     currentProject,
     currentProjectLoading,
-    formData,
     match.params.id,
     usersLoading,
   ]);
