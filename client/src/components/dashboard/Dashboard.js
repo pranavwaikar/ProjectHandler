@@ -32,31 +32,17 @@ const Dashboard = ({
         <Fragment>
           <p> You have Admin priviledges </p>
           <Link to="admin-panel" className="btn btn-primary my-1">
-            Admin Panel
+            Admin Panel - Projects
+          </Link>
+          <Link to="admin-panel/users" className="btn btn-primary my-1">
+            Admin Panel - Users
           </Link>
         </Fragment>
       ) : (
         <Fragment>
           <p> You have member priviledges </p>
-        </Fragment>
-      )}
-      {profile !== null ? (
-        <Fragment>
-          <DashboardActions />
-          <Experience experience={profile.experience} />
-          <Education education={profile.education} />
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus"></i>
-              Delete Account
-            </button>
-          </div>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p> You have not yet setup a profile, Please add some info. </p>
-          <Link to="create-profile" className="btn btn-primary my-1">
-            Create Profile
+          <Link to="projects" className="btn btn-primary my-1">
+            Projects view
           </Link>
         </Fragment>
       )}

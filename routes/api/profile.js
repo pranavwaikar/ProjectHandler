@@ -27,7 +27,7 @@ router.get('/me', auth, async (req, res) => {
     res.json(profile);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -102,7 +102,7 @@ router.post(
       res.json(profile);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -117,7 +117,7 @@ router.get('/', async (req, res) => {
     res.json(profiles);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -140,7 +140,7 @@ router.get('/user/:user_id', async (req, res) => {
     if (error.kind == 'ObjectId') {
       return res.status(400).json({ msg: 'profile not found for this user!' });
     }
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -158,7 +158,7 @@ router.delete('/', auth, async (req, res) => {
     res.json({ msg: 'User deleted' });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -200,7 +200,7 @@ router.put(
       res.json(profile);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -265,7 +265,7 @@ router.put(
       res.json(profile);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -319,7 +319,7 @@ router.get('/github/:username', (req, res) => {
     });
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 module.exports = router;

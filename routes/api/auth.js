@@ -17,7 +17,7 @@ router.get('/', auth, async (req, res) => {
     res.json(user);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error!');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -72,7 +72,7 @@ router.post(
       );
     } catch (error) {
       logger.error('Unable to fetch user record from database - ', error);
-      res.status(500).send('Server error!');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );

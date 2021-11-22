@@ -19,6 +19,10 @@ import Unauthorize from '../layout/Unauthorize';
 import ProjectDisplay from '../admin/ProjectDisplay';
 import TaskCreate from '../admin/TaskCreate';
 import TaskUpdate from '../admin/TaskUpdate';
+import UserDisplay from '../admin/UserDisplay';
+import Projects from '../member/Projects';
+import MemberProjectDisplay from '../member/MemberProjectDisplay';
+import MemberTaskUpdate from '../member/MemberTaskUpdate';
 
 const Routes = () => {
   return (
@@ -44,7 +48,19 @@ const Routes = () => {
           path="/admin-panel/projects/:id/tasks/:taskid"
           component={TaskUpdate}
         />
+        <PrivateRoute exact path="/admin-panel/users" component={UserDisplay} />
         <PrivateRoute exact path="/admin-panel" component={Panel} />
+        <PrivateRoute exact path="/projects" component={Projects} />
+        <PrivateRoute
+          exact
+          path="/projects/:id"
+          component={MemberProjectDisplay}
+        />
+        <PrivateRoute
+          exact
+          path="/projects/:id/tasks/:taskid"
+          component={MemberTaskUpdate}
+        />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create-profile" component={CreateProfile} />
         <PrivateRoute exact path="/edit-profile" component={EditProfile} />

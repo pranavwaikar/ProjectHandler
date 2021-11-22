@@ -39,7 +39,7 @@ router.post(
       res.json(project);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -53,7 +53,7 @@ router.get('/', authAdmin, async (req, res) => {
     res.json(projects);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -73,7 +73,7 @@ router.get('/:id', authAdmin, async (req, res) => {
     if (error.kind === 'ObjectId') {
       res.status(404).send({ msg: 'Project not found!' });
     }
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -95,7 +95,7 @@ router.delete('/:id', authAdmin, async (req, res) => {
     if (error.kind === 'ObjectId') {
       res.status(404).send({ msg: 'Project not found!' });
     }
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -143,7 +143,7 @@ router.put('/:id', authAdmin, async (req, res) => {
     res.json(project);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -167,7 +167,7 @@ router.put('/:id/assign/:user_id', authAdmin, async (req, res) => {
     res.json(project);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -183,7 +183,7 @@ router.get('/:id/tasks', authAdmin, async (req, res) => {
     res.json(tasks);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 

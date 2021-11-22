@@ -20,7 +20,7 @@ router.get('/', auth, async (req, res) => {
     res.json(currentUserProjects);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -48,7 +48,7 @@ router.get('/:id', auth, async (req, res) => {
     res.json(targetProject);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -73,14 +73,17 @@ router.get('/:id/tasks', auth, async (req, res) => {
       throw new Error(`user might not have access to the project`);
     }
 
-    const tasks = await Task.find({ project: req.params.id }).sort({
+    const tasks = await Task.find({
+      project: req.params.id,
+      user: req.user.id,
+    }).sort({
       creationDate: -1,
     });
 
     res.json(tasks);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 

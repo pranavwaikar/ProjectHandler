@@ -153,7 +153,7 @@ const TaskCreate = ({
         <div className="form-group">
           <label for="status">Hourly rate</label>
           <input
-            type="text"
+            type="number"
             placeholder="hourlyRate"
             name="hourlyRate"
             value={formData.hourlyRate}
@@ -204,11 +204,7 @@ const TaskCreate = ({
           />
         </div>
 
-        <input
-          type="submit"
-          value="UpdateProject"
-          className="btn btn-primary"
-        />
+        <input type="submit" value="Create Task" className="btn btn-primary" />
         <Link
           className="btn btn-light my-1"
           to={`/admin-panel/projects/${match.params.id}`}

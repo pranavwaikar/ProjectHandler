@@ -35,7 +35,7 @@ router.post(
       res.json(post);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -49,7 +49,7 @@ router.get('/', auth, async (req, res) => {
     res.json(posts);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -69,7 +69,7 @@ router.get('/:id', auth, async (req, res) => {
     if (error.kind === 'ObjectId') {
       res.status(404).send({ msg: 'Post not found!' });
     }
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -95,7 +95,7 @@ router.delete('/:id', auth, async (req, res) => {
     if (error.kind === 'ObjectId') {
       res.status(404).send({ msg: 'Post not found!' });
     }
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -127,7 +127,7 @@ router.put('/like/:id', auth, async (req, res) => {
     res.json(post.likes);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -163,7 +163,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
     res.json(post.likes);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 
@@ -202,7 +202,7 @@ router.post(
       res.json(post.comments);
     } catch (error) {
       logger.error(error.message);
-      res.status(500).send('server error');
+      res.status(500).send({ errors: [{ msg: 'server error' }] });
     }
   }
 );
@@ -238,7 +238,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     res.json(post.comments);
   } catch (error) {
     logger.error(error.message);
-    res.status(500).send('server error');
+    res.status(500).send({ errors: [{ msg: 'server error' }] });
   }
 });
 module.exports = router;
