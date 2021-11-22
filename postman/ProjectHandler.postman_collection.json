@@ -9,6 +9,38 @@
 			"name": "Users & Auth",
 			"item": [
 				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "Get all users list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0Iiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTYzNzMxNDA4MiwiZXhwIjoxNjM3MzUwMDgyfQ.Y_Sobmey60ARnaGx4WG1OYBcX2wBfeIxYd9yRRtzvM4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Register User",
 					"request": {
 						"method": "POST",
@@ -49,7 +81,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"spreetwo@example.com\",\n\t\"password\": \"spree123\"\n}"
+							"raw": "{\n\t\"email\": \"spree@example.com\",\n\t\"password\": \"spree123\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:5000/api/auth",
@@ -236,6 +268,35 @@
 										"api",
 										"projects",
 										"6192c0d0fb3409b5e85dd625"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all tasks under project id on admin",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-auth-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5MmI4Y2ZkYjMwMWFhMmQ4ZjI3ZDI0Iiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTYzNzI3MTAyNiwiZXhwIjoxNjM3MzA3MDI2fQ.PodR5fFSIWJdGRwZNKGa-mU2BT2har9wON0muqRD-K4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/admin/projects/6192d004c27bb5df61ad98dc/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"admin",
+										"projects",
+										"6192d004c27bb5df61ad98dc",
+										"tasks"
 									]
 								}
 							},
