@@ -75,7 +75,7 @@ router.put('/:id/start', auth, async (req, res) => {
     }
 
     const mandatoryTasks = tasks.filter(
-      (entry) => entry.type === TASK_TYPE.MANDATORY_TASK
+      (entry) => entry.type === TASK_TYPE.MANDATORY_TASK && entry.status !== TASK_STATUS.FINISHED
     );
 
     if (task.type === TASK_TYPE.NORMAL_TASK && mandatoryTasks.length > 0) {
@@ -158,7 +158,7 @@ router.put(
       }
 
       const mandatoryTasks = tasks.filter(
-        (entry) => entry.type === TASK_TYPE.MANDATORY_TASK
+        (entry) => entry.type === TASK_TYPE.MANDATORY_TASK  && entry.status !== TASK_STATUS.FINISHED
       );
 
       if (task.type === TASK_TYPE.NORMAL_TASK && mandatoryTasks.length > 0) {
