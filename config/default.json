@@ -1,0 +1,8 @@
+{
+    "mongoURI": "mongodb+srv://ProjectHandlerMongoUser:ProjectHandlerMongoPassword@cluster0.cxdl6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "bcryptSalt": 10,
+    "JWTExpiresIn": 36000,
+    "githubClientId": "Iv1.984ac1e49c8fabe8",
+    "githubSecret": "e4f0fb3c231116c61255a05971986fe6a845f12b"
+}
